@@ -1,7 +1,8 @@
 import pytest
 import yaml
-
-from pythoncode.calculator import Calculator
+import os
+import sys
+from hogwarts_lg.pythoncode.calculator import Calculator
 
 '''
 pytest 命名规则
@@ -20,22 +21,27 @@ def get_datas():
     return [adddatas, myids]
 
 
+@pytest.fixture(scope="class")
+def get_calc():
+    print("开始计算")
+    calc = Calculator()
+    yield calc
+    print("结束计算")
+
+@pytest.fixture(params=get_datas()[0], ids=get_datas()[1])
+def get_datas(request):
+    return request.param
+
+
 class TestCalc:
-    def setup_class(self):
-        print("开始计算")
-        self.calc = Calculator()
 
-    def teardown_class(self):
-        print("结束计算")
-
-    @pytest.mark.parametrize('a,b,expect', get_datas()[0], ids=get_datas()[1])
-    def test_add(self, a, b, expect):
+    def test_add(self, get_calc, get_datas):
         """
         测试相加
         """
         # calc = Calculator()
-        result = self.calc.add(a, b)
-        assert expect == result
+        result = get_calc.add(get_datas[0], get_datas[1])
+        assert get_datas[2] == result
 
     # @pytest.mark.parametrize('a,b,expect', [
     #     (0.1, 0.2, 0.3)
