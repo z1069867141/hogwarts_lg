@@ -2,7 +2,7 @@ import pytest
 import yaml
 import os
 import sys
-from hogwarts_lg.pythoncode.calculator import Calculator
+from pythoncode.calculator import Calculator
 
 '''
 pytest 命名规则
@@ -13,7 +13,7 @@ pytest 命名规则
 
 
 # 读取测试文件
-def get_datas():
+def get_dates():
     with open('./dates/calc.yml', encoding='utf-8') as f:
         mydatas = yaml.safe_load(f)
         adddatas = mydatas['add']['datas']
@@ -28,7 +28,7 @@ def get_calc():
     yield calc
     print("结束计算")
 
-@pytest.fixture(params=get_datas()[0], ids=get_datas()[1])
+@pytest.fixture(params=get_dates()[0], ids=get_dates()[1])
 def get_datas(request):
     return request.param
 
