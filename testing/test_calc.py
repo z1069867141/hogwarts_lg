@@ -14,7 +14,8 @@ pytest 命名规则
 
 # 读取测试文件
 def get_dates():
-    with open('./dates/calc.yml', encoding='utf-8') as f:
+    mydatapath = os.path.dirname(__file__) + "./dates/calc.yml"
+    with open(mydatapath, encoding='utf-8') as f:
         mydatas = yaml.safe_load(f)
         adddatas = mydatas['add']['datas']
         myids = mydatas['add']['myids']

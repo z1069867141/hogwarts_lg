@@ -1,7 +1,7 @@
 import pytest
 
 
-@pytest.mark.paramtrize('a,b,expect', [
+@pytest.mark.paramtrize('a, b, expect', [
         (1, 1, 2),
         (0.1, 0.2, 0.2),
         (100, 200, 300),
