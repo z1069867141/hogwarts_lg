@@ -5,6 +5,7 @@ from test_selenium.test_project.page.contact_page import ContactPage
 
 
 class MainPage(BasePage):
+    url = "https://work.weixin.qq.com/wework_admin/frame#index"
     def go_to_contact(self):
         return ContactPage(self.driver)
 
