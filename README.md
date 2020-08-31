@@ -11,3 +11,5 @@ pytest第二次作业 hogwarts_lg\testing\forth_test
 selenium作业 hogwarts_lg\test_seleniuum\test_weixing
 
 selenium第二次作业 hogwarts_lg\test_seleniuum\home_work
+
+appium作业 hogwarts_lg\test_seleniuum\test_appium
