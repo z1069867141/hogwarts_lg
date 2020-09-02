@@ -5,9 +5,10 @@ from appium.webdriver.common.mobileby import MobileBy
 class TestAppium:
     def setup(self):
         var = {
+            "deviceName": "7c63d4cd",
             "platformName": "android",
             "appPackage": "com.tencent.wework",
-            "appActivity": ".launch.WwMainActivity",
+            "appActivity": ".launch.LaunchSplashActivity",
             "noReset": "True"
         }
         self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", var)
