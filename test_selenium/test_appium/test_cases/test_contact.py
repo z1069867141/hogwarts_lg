@@ -5,8 +5,8 @@ from test_selenium.test_appium.page.app import App
 
 
 def get_contact():
-    with open("./datas/contacts.yml") as f:
-        datas = yaml.save_load(f)
+    with open("../datas/contacts.yaml") as f:
+        datas = yaml.safe_load(f)
         return datas
 
 
