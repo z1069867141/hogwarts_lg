@@ -15,21 +15,22 @@ class App(BasePage):
     def start(self):
         caps = {}
         caps['platformName'] = "android"
-        caps['deviceName'] = "7c63d4cd"
+        caps['deviceName'] = "127.0.0.1:7555"
         caps['appPackage'] = "com.tencent.wework"
         caps['appActivity'] = ".launch.LaunchSplashActivity"
         caps['noReset'] = "True"
 
-        self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", caps)
+        self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
 
         self.driver.implicitly_wait(5)
         return self
 
     def restart(self):
-        pass
+        self.driver.close_app()
+        self.driver.launch_app()
 
     def stop(self):
-        pass
+        self.driver.quit()
 
     def goto_main(self) -> MainPage:
         return MainPage(self.driver)
