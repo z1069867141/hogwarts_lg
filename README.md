@@ -15,3 +15,5 @@ selenium第二次作业 hogwarts_lg\test_seleniuum\home_work
 appium作业 hogwarts_lg\test_seleniuum\test_appium
 
 appium作业 hogwarts_lg\test_seleniuum\test_appium\page和test_cases
+
+测试框架作业 hogwarts_lg\test_framework
