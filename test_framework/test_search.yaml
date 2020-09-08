@@ -1,0 +1,14 @@
+params:
+# 列表
+  - keyword: alibaba
+  - keyword: baidu
+  - keyword: jd
+
+#params2:
+#  # 词典
+#  username:
+#    - alibaba
+#    - baidu
+#    - jd
+#  password:
+#    - 12345678

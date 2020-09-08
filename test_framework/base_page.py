@@ -1,7 +1,7 @@
 import logging
 
 import yaml
-from appium.webdriver import webdriver
+from appium import webdriver
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
@@ -14,7 +14,7 @@ class BasePage:
     def start(self):
         caps = {
             'platform': 'android',
-            'deviceName': 'ceshiren.com',
+            'deviceName': '7c63d4cd',
             'appPackage': 'com.xueqiu.android',
             'appActivity': '.view.WelcomeActivityAlias',
             'noRest': True
@@ -38,7 +38,7 @@ class BasePage:
         self._current_element.send_keys(text)
         return self
 
-    def po_run(self, po_method):
+    def po_run(self, po_method, **kwargs):
         # read yaml
         with open('page_demo.yaml') as f:
             yaml_data = yaml.safe_load(f)
@@ -54,8 +54,10 @@ class BasePage:
                         elif key == 'click':
                             self.click()
                         elif key == 'send_keys':
-                            self.send_keys()
+                            text = str(step[key])
+                            for k, v in kwargs.items():
+                                text = text.replace('${' + k + '}', v)
+                            self.send_keys(text)
                         # todo: 更多关键字
                         else:
                             logging.error(f"dont know{step}")
-        pass
