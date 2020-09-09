@@ -28,6 +28,6 @@ class Utils:
             var_names = ','.join(keys)
             return {'keys': var_names, 'values': values}
 
-if __name__ == '__main__':
-    a = Utils()
-    a.from_file('test_search.yaml')
+# if __name__ == '__main__':
+#     a = Utils()
+#     a.from_file('test_search.yaml')
