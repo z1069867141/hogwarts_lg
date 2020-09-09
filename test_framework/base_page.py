@@ -23,7 +23,7 @@ class BasePage:
         """
         caps = {
             'platformName': 'android',
-            'deviceName': '7c63d4cd',
+            'deviceName': '127.0.0.1:7555',
             'appPackage': 'com.xueqiu.android',
             'appActivity': '.view.WelcomeActivityAlias',
             'noRest': True

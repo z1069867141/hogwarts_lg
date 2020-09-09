@@ -12,10 +12,16 @@ class TestLogin:
     data = Utils.from_file(testcase_file)
 
     def setup_class(self):
-        self.app = BasePage()
-        self.app.start()
+        """
+        由于在使用Demopage的时候,调用start并不会将类里的_driver调用会让_driver一直处于None,
+        需要先调用app.start()让类里的_driver有值才行，不然会提示_driver使用find_element搜索element是空的
+        :return:
+        """
+        # self.app = BasePage()
+        # self.app.start()
 
         self.demo = DemoPage(self.po_file)
+        self.demo.start()
 
     def setup(self):
         pass
