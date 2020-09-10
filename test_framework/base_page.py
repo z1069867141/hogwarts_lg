@@ -6,6 +6,7 @@ from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from test_framework.log import log
 
 
 class BasePage:
@@ -51,12 +52,13 @@ class BasePage:
         self._current_element.send_keys(text)
         return self
 
-    def back(self):
-        BasePage._driver.back()
-        return self
+    # def back(self):
+    #     BasePage._driver.back()
+    #     return self
 
     def po_run(self, po_method, **kwargs):
         # read yaml
+        # log.debug(f"po_run {po_method} {kwargs}")
         with open(self._po_file, encoding='utf-8') as f:
             yaml_data = yaml.safe_load(f)
             # find search

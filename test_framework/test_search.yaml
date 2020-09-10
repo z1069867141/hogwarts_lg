@@ -1,7 +1,7 @@
 params:
 # 列表
   - keyword: alibaba
-  - keyword: baidu
+  - keyword: baid
   - keyword: jd
 
 #params2:

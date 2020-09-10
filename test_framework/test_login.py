@@ -2,7 +2,7 @@ import pytest
 
 from test_framework.base_page import BasePage
 from test_framework.demo_page import DemoPage
-from test_framework.login_page import LoginPage
+from test_framework.common_page import CommonPage
 from test_framework.utils import Utils
 
 
@@ -17,11 +17,11 @@ class TestLogin:
         需要先调用app.start()让类里的_driver有值才行，不然会提示_driver使用find_element搜索element是空的
         :return:
         """
-        # self.app = BasePage()
-        # self.app.start()
+        self.app = BasePage()
+        self.app.start()
 
-        self.demo = DemoPage(self.po_file)
-        self.demo.start()
+        # self.demo = DemoPage(self.po_file)
+        # self.demo.start()
 
     def setup(self):
         pass
@@ -39,8 +39,8 @@ class TestLogin:
     # ])
     def test_login(self):
         po_file = "page_login.yaml"
-        login = LoginPage(po_file)
-        login.login_by_password('18018845546', '111111')
+        login = CommonPage(po_file)
+        login.login_by_password(username='18018845546', password='111111')
 
     # @pytest.mark.parametrize("keyword", [
     #     'alibaba',
@@ -48,7 +48,15 @@ class TestLogin:
     #     'jd'
     # ])
 
+    # @pytest.mark.parametrize(data['keys'], data['values'])
+    # def test_search(self, keyword):
+    #     self.demo = DemoPage(self.po_file)
+    #     self.demo.search(keyword)
+    #     self.demo.back()
+
+    # 用common page来代替
     @pytest.mark.parametrize(data['keys'], data['values'])
-    def test_search(self, keyword):
-        self.demo.search(keyword)
-        self.demo.back()
+    def test_search_common(self, keyword):
+        demo = CommonPage(self.po_file)
+        demo.search(keyword=keyword)
+        demo.back()

@@ -1,5 +1,5 @@
 login:
-  - find：{id:xxx}
+  - find: {id:xxx}
   - click
   - find: {text:xxx}
   - send_keys: xxx
