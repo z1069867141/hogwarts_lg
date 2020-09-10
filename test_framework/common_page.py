@@ -14,14 +14,16 @@ class CommonPage(BasePage):
         我直接给你调用_po_method这个方法
         """
         # log.debug(f'__get__attr__ {item}')
-        self._method_name = item
+        self.method_name = item
         # 当方法找不到的时候我直接给你调用一个通用方法
+        print(item)
         return self._po_method
 
     # 定义通用方法
+    # 其中self.method_name是按照__getattr__中没有调用的方法作为了yaml中的search使用
     def _po_method(self, **kwargs):
         # log.debug(f"_po_method {kwargs}")
-        self.po_run(self._method_name, **kwargs)
+        self.po_run(self.method_name, **kwargs)
 
     # def login_by_password(self, username, password):
     #     self.po_run("login_by_password", username=username, password=password)

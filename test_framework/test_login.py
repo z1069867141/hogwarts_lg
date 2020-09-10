@@ -59,4 +59,3 @@ class TestLogin:
     def test_search_common(self, keyword):
         demo = CommonPage(self.po_file)
         demo.search(keyword=keyword)
-        demo.back()
