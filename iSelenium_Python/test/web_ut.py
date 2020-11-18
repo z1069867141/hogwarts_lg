@@ -21,7 +21,7 @@ class ISelenium(unittest.TestCase):
         self.driver.quit()
 
     def setUp(self):
-        # config = self.get_config()
+        config = self.get_config()
 
         #  控制是否采用无界面形式运行自动化测试
         try:
@@ -35,10 +35,10 @@ class ISelenium(unittest.TestCase):
             print('使用无界面方式运行')
             chrome_options.add_argument('--headless')
 
-        # self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
-        #                                options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
+                                       options=chrome_options)
 
-        self.driver = webdriver.Chrome(options=chrome_options)
+        # self.driver = webdriver.Chrome(options=chrome_options)
 
     def test_webui_1(self):
         """
