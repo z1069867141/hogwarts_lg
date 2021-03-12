@@ -1,3 +1,7 @@
+from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
 from test_appium.test_appium import TestAppium
 
 class TestCase(TestAppium):
@@ -55,3 +59,21 @@ class TestCase(TestAppium):
         self.driver.find_element_by_android_uiautomator('new UiSelector().resourceId("com.xueqiu.android:id/login_password")').send_keys("123456")
         self.driver.find_element_by_android_uiautomator('new UiSelector().resourceId("com.xueqiu.android:id/button_next")').click()
         self.driver.find_element_by_android_uiautomator('new UiSelector().resourceId(com.xueqiu.android:id/tab_name).text("我的")。className("")')
+
+    def test_wait(self):
+        """
+        打开【雪球】应用搜索阿里巴巴-sw，之后答应股票目前的价格
+        """
+        self.driver.find_element_by_id("com.xueqiu.android:id/home_search").click()
+        self.driver.find_element_by_id("com.xueqiu.android:id/search_input_text").send_keys("阿里巴巴")
+        self.driver.find_element_by_xpath("//*[@resource-id='com.xueqiu.android:id/name' and @text='阿里巴巴']").click()
+
+        locator = (MobileBy.XPATH, "//*[@text='09988']/../../..//*[@resource-id='com.xueqiu.android:id/current_price']")
+        WebDriverWait(self.driver,10).until(expected_conditions.element_to_be_clickable(locator))
+        prise = self.driver.find_element_by_xpath(
+            "//*[@text='09988']/../../..//*[@resource-id='com.xueqiu.android:id/current_price']").text
+        print(prise)
+        assert float(prise) > 100
+
+    def test_toast(self):
+        self.driver.find_element(MobileBy.XPATH, "//*[contains(@text,'Clicked popup')]").text
