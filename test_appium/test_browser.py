@@ -26,8 +26,6 @@ class TestBrowser:
     def test_browser(self):
         self.driver.get("http://m.baidu.com")
         sleep(5)
-        search_locator = (By.ID, "index-kw")
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(search_locator))
-        self.driver.find_element_by_id("index-kw").click()
-        self.driver.find_element_by_id("index-kw").send_keys("appium")
-        self.driver.find_element_by_id("index-bn").click()
+        self.driver.find_element_by_xpath("//*[@id='index-kw']").click()
+        self.driver.find_element_by_xpath("//*[@id='index-kw']").send_keys("appium")
+        self.driver.find_element_by_xpath("//*[@id='index-bn']").click()
