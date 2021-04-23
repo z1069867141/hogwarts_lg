@@ -25,7 +25,6 @@ class TestBrowser:
 
     def test_browser(self):
         self.driver.get("http://m.baidu.com")
-        sleep(5)
         self.driver.find_element_by_xpath("//*[@id='index-kw']").click()
         self.driver.find_element_by_xpath("//*[@id='index-kw']").send_keys("appium")
         self.driver.find_element_by_xpath("//*[@id='index-bn']").click()
