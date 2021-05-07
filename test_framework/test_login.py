@@ -48,7 +48,7 @@ class TestLogin:
     #     'jd'
     # ])
 
-    # @pytest.mark.parametrize(data['keys'], data['values'])
+    # @pytest.mark.parametrize(datas['keys'], datas['values'])
     # def test_search(self, keyword):
     #     self.demo = DemoPage(self.po_file)
     #     self.demo.search(keyword)
