@@ -1,4 +1,4 @@
-# from test_appium.case.page.addresspage.ContactAddPage import ContactAddPage
+# from test_appium.cases.page.addresspage.ContactAddPage import ContactAddPage
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.common.by import By
 

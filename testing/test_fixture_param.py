@@ -8,4 +8,4 @@ def login(request):
 
 def test_case(login):
     print(f"username:{login[0]},password:{login[1]}")
-    print("case")
+    print("cases")

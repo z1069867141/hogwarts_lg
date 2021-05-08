@@ -1,4 +1,4 @@
-# from test_appium.case.page.addresspage.memberinvitepage import MemberInvitePage
+# from test_appium.cases.page.addresspage.memberinvitepage import MemberInvitePage
 from appium.webdriver.common.mobileby import MobileBy
 
 from test_appium.case.page.basepage import BasePage
