@@ -3,10 +3,10 @@ from appium.webdriver.webdriver import WebDriver
 
 class Base:
     def __init__(self, driver: WebDriver = None):
-        self.driver = driver
+        self._driver = driver
 
     def find(self, locator):
-        return self.driver.find_element(*locator)
+        return self._driver.find_element(*locator)
 
     def find_click(self, locator):
         self.find(locator).click()

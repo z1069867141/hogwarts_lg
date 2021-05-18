@@ -1,9 +1,8 @@
 import pytest
 
-from test_framework.base_page import BasePage
-from test_framework.demo_page import DemoPage
-from test_framework.common_page import CommonPage
-from test_framework.utils import Utils
+from framework.test_framework.base_page import BasePage
+from framework.test_framework.common_page import CommonPage
+from framework.test_framework.utils import Utils
 
 
 class TestLogin:

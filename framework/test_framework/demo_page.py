@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from test_framework.base_page import BasePage
+from framework.test_framework.base_page import BasePage
 
 
 class DemoPage(BasePage):

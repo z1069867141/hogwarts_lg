@@ -2,11 +2,9 @@ import logging
 
 import yaml
 from appium import webdriver
-from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from test_framework.log import log
 
 
 class BasePage:

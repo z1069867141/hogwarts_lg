@@ -1,5 +1,4 @@
-from test_framework.base_page import BasePage
-from test_framework.log import log
+from framework.test_framework.base_page import BasePage
 
 
 class CommonPage(BasePage):
