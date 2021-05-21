@@ -37,15 +37,15 @@ class BasePage:
     def send_keys(self, value):
         self._current_element.send_keys(value)
 
-    def po_run(self, po_method):
-        #read yaml
+    def po_run(self, po_method, **kwargs):
+        # read yaml
         with open('page_demo.yaml') as f:
             yaml_data = yaml.safe_load(f)
-            #find search
+            # find search
             for step in yaml_data[po_method]:
                 # find by click send_keys
                 if isinstance(step, dict):
-                    #id click send_keys
+                    # id click send_keys
                     for key in step.keys():
                         if key == "id":
                             locator = (By.ID, step[key])
@@ -53,7 +53,11 @@ class BasePage:
                         elif key == "click":
                             self.click()
                         elif key == "send_keys":
-                            self.send_keys(step[key])
-                        #todo: 更多关键词
+                            text = str(step[key])
+                            for k, v in kwargs.items():
+                                value = text.replace(f"{k}", v)
+                            print(value)
+                            self.send_keys(value)
+                        # todo: 更多关键词
                         else:
                             logging.error(f"don't know {step}")

@@ -10,6 +10,11 @@ class demo(BasePage):
     def login(self, username, password):
         pass
 
+    #todo: po的参数化
     def search(self, keyword):
-        self.po_run('search')
+        self.po_run('search', keyword=keyword)
+        return self
+
+    def back(self):
+        self.po_run("back")
         return self

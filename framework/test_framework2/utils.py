@@ -14,9 +14,9 @@ class Utils:
                     if isinstance(row, dict):
                         for key in row.keys():
                             keys.add(key)
-                            values.append(row.values())
+                            values.append(list(row.values())[0])
             var_names = ','.join(keys)
-            return print({'keys': var_names, 'values': values})
+            return {'keys': var_names, 'values': values}
 
 
 if __name__ == "__main__":
