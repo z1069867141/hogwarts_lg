@@ -1,14 +1,17 @@
 import pytest
 
-from framework.test_framework2.demo_page import demo
+from framework.test_framework2.demo_page import DemoPage
 from framework.test_framework2.utils import Utils
 
 
 class TestLogin:
-    data = Utils.from_file('test_search.yaml')
+    testcase_file = 'test_search.yaml'
+    po_file = 'page_demo.yaml'
+
+    data = Utils.from_file(testcase_file)
 
     def setup_class(self):
-        self.demo = demo()
+        self.demo = DemoPage(self.po_file)
         self.demo.start()
 
     def setup(self):

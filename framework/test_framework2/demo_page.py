@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from framework.test_framework2.base_page import BasePage
 
 
-class demo(BasePage):
+class DemoPage(BasePage):
     _search_button = (By.ID, "home_search")
 
     # todo: po的数据驱动
