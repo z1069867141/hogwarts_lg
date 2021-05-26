@@ -19,7 +19,7 @@ class Utils:
             return {'keys': var_names, 'values': values}
 
 
-if __name__ == "__main__":
-    Utils.from_file("test_search.yaml")
+# if __name__ == "__main__":
+#     Utils.from_file("test_search.yaml")
 # {'keys': {'keyword'}, 'values': [dict_values(['alibaba']), dict_values(['baidu']), dict_values(['jd'])]}
 # {'keys': 'keyword', 'values': [dict_values(['alibaba']), dict_values(['baidu']), dict_values(['jd'])]}
