@@ -74,4 +74,4 @@ class TestDemo:
 
     def test_oauth(self):
         r = requests.get(url="https://httpbin.testing-studio.com/basic-auth/oaisdjfoifadj/51651",
-                         auth=HTTPBasicAuth("oaisdjfoifadj", "51651"))
+                         auth=HTTPBasicAuth("oaisdjfoifadj", "51651")) 
